@@ -1,0 +1,2 @@
+/src/** linguist-vendored -diff
+/bindings/** linguist-vendored -diff
