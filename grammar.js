@@ -20,6 +20,8 @@ module.exports = grammar({
     expr: $ => choice(
       $.ident,
       $.number,
+      $.string,
+      $.paren_expr,
     ),
 
     func_call_expr: $ => prec.right(seq(
@@ -27,6 +29,8 @@ module.exports = grammar({
       repeat($.string_ident),
       /\r?\n/,
     )),
+
+    paren_expr: $ => seq('(', $.expr, ')'),
 
     // floats aren't actually supported yet :(
     number: $ => /[0-9]+([0-9])?/,

@@ -73,6 +73,14 @@
         {
           "type": "SYMBOL",
           "name": "number"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "paren_expr"
         }
       ]
     },
@@ -99,6 +107,23 @@
           }
         ]
       }
+    },
+    "paren_expr": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
     },
     "number": {
       "type": "PATTERN",
