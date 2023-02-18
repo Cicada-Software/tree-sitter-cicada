@@ -1,5 +1,10 @@
 [
   {
+    "type": "bool_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "expr",
     "named": true,
     "fields": {},
@@ -7,6 +12,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "bool_literal",
+          "named": true
+        },
         {
           "type": "ident",
           "named": true
@@ -21,6 +30,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "unary_expr",
           "named": true
         }
       ]
@@ -67,7 +80,28 @@
   {
     "type": "on_stmt",
     "named": true,
-    "fields": {}
+    "fields": {
+      "event": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "event_type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "paren_expr",
@@ -127,11 +161,30 @@
     }
   },
   {
+    "type": "unary_expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "(",
     "named": false
   },
   {
     "type": ")",
+    "named": false
+  },
+  {
+    "type": "-",
     "named": false
   },
   {
@@ -143,11 +196,23 @@
     "named": true
   },
   {
+    "type": "event_type",
+    "named": true
+  },
+  {
+    "type": "false",
+    "named": false
+  },
+  {
     "type": "ident",
     "named": true
   },
   {
     "type": "let",
+    "named": false
+  },
+  {
+    "type": "not",
     "named": false
   },
   {
@@ -165,5 +230,13 @@
   {
     "type": "string_ident",
     "named": true
+  },
+  {
+    "type": "true",
+    "named": false
+  },
+  {
+    "type": "where",
+    "named": false
   }
 ]
