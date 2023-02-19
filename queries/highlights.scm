@@ -1,23 +1,24 @@
 [
-; "and"
+  "and"
 ; "break"
 ; "continue"
 ; "elif"
 ; "else"
 ; "if"
+  "is"
 ; "import"
   "let"
-; "mod"
+  "mod"
 ; "mut"
 ; "noop"
   "not"
   "on"
-; "or"
+  "or"
 ; "return"
 ; "unreachable"
   "where"
 ; "while"
-; "xor"
+  "xor"
 ] @keyword
 
 ["(" ")"] @punctuation.bracket

@@ -1,5 +1,20 @@
 [
   {
+    "type": "binary_expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "bool_literal",
     "named": true,
     "fields": {}
@@ -12,6 +27,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "binary_expr",
+          "named": true
+        },
         {
           "type": "bool_literal",
           "named": true
@@ -184,11 +203,47 @@
     "named": false
   },
   {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
     "type": "-",
     "named": false
   },
   {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
     "type": "=",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
+    "type": "^",
+    "named": false
+  },
+  {
+    "type": "and",
     "named": false
   },
   {
@@ -208,7 +263,15 @@
     "named": true
   },
   {
+    "type": "is",
+    "named": false
+  },
+  {
     "type": "let",
+    "named": false
+  },
+  {
+    "type": "mod",
     "named": false
   },
   {
@@ -221,6 +284,10 @@
   },
   {
     "type": "on",
+    "named": false
+  },
+  {
+    "type": "or",
     "named": false
   },
   {
@@ -237,6 +304,10 @@
   },
   {
     "type": "where",
+    "named": false
+  },
+  {
+    "type": "xor",
     "named": false
   }
 ]

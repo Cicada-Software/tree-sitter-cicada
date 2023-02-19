@@ -24,6 +24,7 @@ module.exports = grammar({
     let_stmt: $ => seq('let', $.ident, '=', $.expr),
 
     expr: $ => choice(
+      $.binary_expr,
       $.unary_expr,
       $.ident,
       $.number,
@@ -50,9 +51,22 @@ module.exports = grammar({
     string_ident: $ => /\S+/,
     ident: $ => /[a-zA-Z_][a-zA-Z0-9._]*/,
 
-    unary_expr: $ => seq(
-      choice('not', '-'),
-      $.expr,
+    unary_expr: $ => prec.left(
+      seq(
+        choice('not', '-'),
+        $.expr,
+      )
+    ),
+
+    binary_expr: $ => prec.left(
+      seq(
+        $.expr,
+        choice(
+          '+', '-', '*', '/', '^', '<', '<=', '>', '>=',
+          'and', 'mod', 'or', 'is', 'xor'
+        ),
+        $.expr,
+      ),
     ),
 
     comment: $ => /#.*/,
