@@ -46,9 +46,18 @@ module.exports = grammar({
 
     bool_literal: $ => choice('true', 'false'),
 
-    string: $ => /".*"/,
+    string: $ => seq('"', optional(repeat(/./)), '"'),
 
-    string_ident: $ => /\S+/,
+    string_ident: $ => choice(
+      $.paren_expr,
+      seq(
+        /[^\S(]+/,
+        optional(
+          seq(token.immediate('('), $.expr, ')', /[^\S)]*/),
+        ),
+      ),
+    ),
+
     ident: $ => /[a-zA-Z_][a-zA-Z0-9._]*/,
 
     unary_expr: $ => prec.left(
