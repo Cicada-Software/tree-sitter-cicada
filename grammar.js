@@ -41,8 +41,12 @@ module.exports = grammar({
 
     paren_expr: $ => seq('(', $.expr, ')'),
 
-    // floats aren't actually supported yet :(
-    number: $ => /[0-9]+([0-9])?/,
+    number: $ => choice(
+      /0b[01_]+/,
+      /0o[0-7_]+/,
+      /0x[A-Fa-f0-9_]+/,
+      /[0-9]+([0-9])?/,
+    ),
 
     bool_literal: $ => choice('true', 'false'),
 

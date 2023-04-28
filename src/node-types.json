@@ -97,6 +97,11 @@
     }
   },
   {
+    "type": "number",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "on_stmt",
     "named": true,
     "fields": {
@@ -305,10 +310,6 @@
   {
     "type": "not",
     "named": false
-  },
-  {
-    "type": "number",
-    "named": true
   },
   {
     "type": "on",
