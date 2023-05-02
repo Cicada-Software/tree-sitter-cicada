@@ -21,7 +21,7 @@ module.exports = grammar({
       optional(seq('where', $.expr)),
     ),
 
-    let_stmt: $ => seq('let', $.ident, '=', $.expr),
+    let_stmt: $ => seq('let', optional('mut'), $.ident, '=', $.expr),
 
     expr: $ => choice(
       $.binary_expr,

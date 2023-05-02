@@ -9,7 +9,7 @@
 ; "import"
   "let"
   "mod"
-; "mut"
+  "mut"
 ; "noop"
   "not"
   "on"
