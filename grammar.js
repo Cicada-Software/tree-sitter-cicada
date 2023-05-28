@@ -8,6 +8,7 @@ module.exports = grammar({
 
     stmt: $ => choice(
       $.on_stmt,
+      $.run_on_stmt,
       $.comment,
       $.let_stmt,
       $.func_call_expr,
@@ -19,6 +20,17 @@ module.exports = grammar({
       'on',
       field('event', $.event_type),
       optional(seq('where', $.expr)),
+    ),
+
+    run_on_type: $ => choice('image'),
+
+    run_on_stmt: $ => seq(
+      'run_on',
+      field('type', $.run_on_type),
+      repeat1(
+        choice($.string_ident, '-', ':', '/', $.number),
+      ),
+      /\n/,
     ),
 
     let_stmt: $ => seq('let', optional('mut'), $.ident, '=', $.expr),

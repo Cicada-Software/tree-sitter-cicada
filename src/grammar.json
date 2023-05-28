@@ -17,6 +17,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "run_on_stmt"
+        },
+        {
+          "type": "SYMBOL",
           "name": "comment"
         },
         {
@@ -68,6 +72,64 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "run_on_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "image"
+        }
+      ]
+    },
+    "run_on_stmt": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "run_on"
+        },
+        {
+          "type": "FIELD",
+          "name": "type",
+          "content": {
+            "type": "SYMBOL",
+            "name": "run_on_type"
+          }
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "string_ident"
+              },
+              {
+                "type": "STRING",
+                "value": "-"
+              },
+              {
+                "type": "STRING",
+                "value": ":"
+              },
+              {
+                "type": "STRING",
+                "value": "/"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "number"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\n"
         }
       ]
     },

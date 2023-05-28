@@ -143,6 +143,41 @@
     }
   },
   {
+    "type": "run_on_stmt",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "run_on_type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string_ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "run_on_type",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -179,6 +214,10 @@
         },
         {
           "type": "on_stmt",
+          "named": true
+        },
+        {
+          "type": "run_on_stmt",
           "named": true
         }
       ]
@@ -252,6 +291,10 @@
     "named": false
   },
   {
+    "type": ":",
+    "named": false
+  },
+  {
     "type": "<",
     "named": false
   },
@@ -296,6 +339,10 @@
     "named": true
   },
   {
+    "type": "image",
+    "named": false
+  },
+  {
     "type": "is",
     "named": false
   },
@@ -321,6 +368,10 @@
   },
   {
     "type": "or",
+    "named": false
+  },
+  {
+    "type": "run_on",
     "named": false
   },
   {
