@@ -12,6 +12,7 @@ module.exports = grammar({
       $.comment,
       $.let_stmt,
       $.func_call_expr,
+      $.if_expr, // TODO: make this an expression
     ),
 
     event_type: $ => /[a-z.]+/,
@@ -32,6 +33,8 @@ module.exports = grammar({
       ),
       /\n/,
     ),
+
+    if_expr: $ => seq('if', $.expr, ':'),
 
     let_stmt: $ => seq('let', optional('mut'), $.ident, '=', $.expr),
 

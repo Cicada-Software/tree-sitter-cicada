@@ -30,6 +30,10 @@
         {
           "type": "SYMBOL",
           "name": "func_call_expr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "if_expr"
         }
       ]
     },
@@ -130,6 +134,23 @@
         {
           "type": "PATTERN",
           "value": "\\n"
+        }
+      ]
+    },
+    "if_expr": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "if"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
         }
       ]
     },

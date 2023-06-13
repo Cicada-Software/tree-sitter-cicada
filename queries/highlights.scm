@@ -4,7 +4,7 @@
 ; "continue"
 ; "elif"
 ; "else"
-; "if"
+  "if"
   "is"
 ; "import"
   "let"
@@ -23,6 +23,8 @@
 ] @keyword
 
 ["(" ")"] @punctuation.bracket
+
+[":"] @punctuation
 
 (number) @number
 
