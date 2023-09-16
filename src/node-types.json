@@ -398,6 +398,10 @@
     "named": false
   },
   {
+    "type": "self_hosted",
+    "named": false
+  },
+  {
     "type": "true",
     "named": false
   },

@@ -23,13 +23,15 @@ module.exports = grammar({
       optional(seq('where', $.expr)),
     ),
 
-    run_on_type: $ => choice('image'),
+    run_on_type: $ => choice('image', 'self_hosted'),
 
     run_on_stmt: $ => seq(
       'run_on',
       field('type', $.run_on_type),
-      repeat1(
-        choice($.string_ident, '-', ':', '/', $.number),
+      optional(
+        repeat1(
+          choice($.string_ident, '-', ':', '/', $.number),
+        ),
       ),
       /\n/,
     ),
