@@ -261,6 +261,10 @@
         {
           "type": "run_on_stmt",
           "named": true
+        },
+        {
+          "type": "title_stmt",
+          "named": true
         }
       ]
     }
@@ -284,6 +288,21 @@
         },
         {
           "type": "paren_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "title_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "string_ident",
           "named": true
         }
       ]
@@ -426,6 +445,10 @@
   },
   {
     "type": "self_hosted",
+    "named": false
+  },
+  {
+    "type": "title",
     "named": false
   },
   {

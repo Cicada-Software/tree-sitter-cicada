@@ -37,6 +37,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "title_stmt"
+        },
+        {
+          "type": "SYMBOL",
           "name": "if_expr"
         }
       ]
@@ -518,6 +522,22 @@
         {
           "type": "SYMBOL",
           "name": "expr"
+        }
+      ]
+    },
+    "title_stmt": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "title"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "string_ident"
+          }
         }
       ]
     },

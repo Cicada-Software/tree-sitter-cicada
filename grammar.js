@@ -13,6 +13,7 @@ module.exports = grammar({
       $.let_stmt,
       $.func_call_expr,
       $.cache_stmt,
+      $.title_stmt,
       $.if_expr, // TODO: make this an expression
     ),
 
@@ -106,6 +107,8 @@ module.exports = grammar({
       'using',
       $.expr,
     ),
+
+    title_stmt: $ => seq('title', repeat1($.string_ident)),
 
     comment: $ => /#.*/,
   }

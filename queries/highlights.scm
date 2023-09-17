@@ -17,6 +17,7 @@
   "or"
 ; "return"
   "run_on"
+  "title"
 ; "unreachable"
   "using"
   "where"
