@@ -1,6 +1,7 @@
 [
   "and"
 ; "break"
+  "cache"
 ; "continue"
 ; "elif"
 ; "else"
@@ -17,6 +18,7 @@
 ; "return"
   "run_on"
 ; "unreachable"
+  "using"
   "where"
 ; "while"
   "xor"

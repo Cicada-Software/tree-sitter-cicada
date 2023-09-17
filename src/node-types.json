@@ -20,6 +20,25 @@
     "fields": {}
   },
   {
+    "type": "cache_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "string_ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expr",
     "named": true,
     "fields": {},
@@ -216,6 +235,10 @@
       "required": true,
       "types": [
         {
+          "type": "cache_stmt",
+          "named": true
+        },
+        {
           "type": "comment",
           "named": true
         },
@@ -342,6 +365,10 @@
     "named": false
   },
   {
+    "type": "cache",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
   },
@@ -403,6 +430,10 @@
   },
   {
     "type": "true",
+    "named": false
+  },
+  {
+    "type": "using",
     "named": false
   },
   {

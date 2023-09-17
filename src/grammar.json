@@ -33,6 +33,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "cache_stmt"
+        },
+        {
+          "type": "SYMBOL",
           "name": "if_expr"
         }
       ]
@@ -492,6 +496,30 @@
           }
         ]
       }
+    },
+    "cache_stmt": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "cache"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "string_ident"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "using"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr"
+        }
+      ]
     },
     "comment": {
       "type": "PATTERN",

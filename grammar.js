@@ -12,6 +12,7 @@ module.exports = grammar({
       $.comment,
       $.let_stmt,
       $.func_call_expr,
+      $.cache_stmt,
       $.if_expr, // TODO: make this an expression
     ),
 
@@ -97,6 +98,13 @@ module.exports = grammar({
         ),
         $.expr,
       ),
+    ),
+
+    cache_stmt: $ => seq(
+      'cache',
+      repeat1($.string_ident),
+      'using',
+      $.expr,
     ),
 
     comment: $ => /#.*/,
