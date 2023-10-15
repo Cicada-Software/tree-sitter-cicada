@@ -14,6 +14,7 @@ module.exports = grammar({
       $.func_call_expr,
       $.cache_stmt,
       $.title_stmt,
+      $.func_def_stmt,
       $.if_expr, // TODO: make this an expression
     ),
 
@@ -109,6 +110,18 @@ module.exports = grammar({
     ),
 
     title_stmt: $ => seq('title', repeat1($.string_ident)),
+
+    type: $ => choice($.ident, '()'),
+
+    func_def_stmt: $ => seq(
+      'fn',
+      $.ident,
+      '(',
+      repeat(seq($.ident, ':', $.type)),
+      ')',
+      optional(seq('->', $.type)),
+      ':',
+    ),
 
     comment: $ => /#.*/,
   }

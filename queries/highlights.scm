@@ -5,6 +5,7 @@
 ; "continue"
 ; "elif"
 ; "else"
+  "fn"
   "if"
   "is"
 ; "import"
@@ -44,3 +45,6 @@
 (run_on_stmt type: (run_on_type) @constant)
 
 (bool_literal) @constant
+
+(type) @type
+(type (ident)@type)
