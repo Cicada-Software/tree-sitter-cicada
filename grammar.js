@@ -113,7 +113,10 @@ module.exports = grammar({
 
     type: $ => choice($.ident, '()'),
 
+    func_annotation: $ => seq('@', $.ident),
+
     func_def_stmt: $ => seq(
+      repeat($.func_annotation),
       'fn',
       $.ident,
       '(',
