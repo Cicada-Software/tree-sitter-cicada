@@ -26,7 +26,7 @@
   "xor"
 ] @keyword
 
-["(" ")"] @punctuation.bracket
+["(" ")" "[" "]"] @punctuation.bracket
 
 [":"] @punctuation
 

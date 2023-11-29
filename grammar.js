@@ -61,6 +61,12 @@ module.exports = grammar({
 
     paren_expr: $ => seq('(', $.expr, ')'),
 
+    list_expr: $ => seq(
+      '[',
+      repeat1(seq($.expr, ',')),
+      ']'
+    ),
+
     number: $ => choice(
       /0b[01_]+/,
       /0o[0-7_]+/,
