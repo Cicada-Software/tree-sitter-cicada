@@ -156,8 +156,8 @@
           ]
         },
         {
-          "type": "PATTERN",
-          "value": "\\n"
+          "type": "STRING",
+          "value": "\n"
         }
       ]
     },
@@ -571,6 +571,10 @@
             "type": "SYMBOL",
             "name": "string_ident"
           }
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
         }
       ]
     },

@@ -1,4 +1,4 @@
-SHELL_ALIASES = ['git', 'cd', 'mkdir', 'rm', 'echo', 'make'];
+SHELL_ALIASES = ['cd', 'cp', 'echo', 'git', 'ls', 'make', 'mkdir', 'rm'];
 
 module.exports = grammar({
   name: 'cicada',
@@ -36,7 +36,7 @@ module.exports = grammar({
           choice($.string_ident, '-', ':', '/', $.number),
         ),
       ),
-      /\n/,
+      '\n',
     ),
 
     if_expr: $ => seq('if', $.expr, ':'),
@@ -115,7 +115,7 @@ module.exports = grammar({
       $.expr,
     ),
 
-    title_stmt: $ => seq('title', repeat1($.string_ident)),
+    title_stmt: $ => seq('title', repeat1($.string_ident), '\n'),
 
     type: $ => choice($.ident, '()'),
 
