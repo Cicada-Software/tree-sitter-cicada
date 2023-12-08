@@ -16,6 +16,9 @@ module.exports = grammar({
       $.title_stmt,
       $.func_def_stmt,
       $.if_expr, // TODO: make this an expression
+      $.for_stmt,
+      $.break_stmt,
+      $.continue_stmt,
     ),
 
     event_type: $ => /[a-z.]+/,
@@ -41,6 +44,11 @@ module.exports = grammar({
 
     if_expr: $ => seq('if', $.expr, ':'),
 
+    for_stmt: $ => seq('for', $.ident, 'in', $.expr, ':'),
+
+    break_stmt: $ => 'break' ,
+    continue_stmt: $ => 'continue',
+
     let_stmt: $ => seq('let', optional('mut'), $.ident, '=', $.expr),
 
     expr: $ => choice(
@@ -51,6 +59,7 @@ module.exports = grammar({
       $.string,
       $.paren_expr,
       $.bool_literal,
+      $.list_expr,
     ),
 
     func_call_expr: $ => prec.right(seq(

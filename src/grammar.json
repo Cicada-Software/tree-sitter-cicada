@@ -46,6 +46,18 @@
         {
           "type": "SYMBOL",
           "name": "if_expr"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "for_stmt"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "break_stmt"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "continue_stmt"
         }
       ]
     },
@@ -178,6 +190,39 @@
         }
       ]
     },
+    "for_stmt": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "for"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ident"
+        },
+        {
+          "type": "STRING",
+          "value": "in"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        }
+      ]
+    },
+    "break_stmt": {
+      "type": "STRING",
+      "value": "break"
+    },
+    "continue_stmt": {
+      "type": "STRING",
+      "value": "continue"
+    },
     "let_stmt": {
       "type": "SEQ",
       "members": [
@@ -241,6 +286,10 @@
         {
           "type": "SYMBOL",
           "name": "bool_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "list_expr"
         }
       ]
     },

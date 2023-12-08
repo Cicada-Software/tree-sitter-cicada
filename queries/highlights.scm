@@ -1,12 +1,12 @@
 [
   "and"
-; "break"
   "cache"
-; "continue"
 ; "elif"
 ; "else"
+  "for"
   "fn"
   "if"
+  "in"
   "is"
 ; "import"
   "let"
@@ -25,6 +25,9 @@
 ; "while"
   "xor"
 ] @keyword
+
+(break_stmt) @keyword
+(continue_stmt) @keyword
 
 ["(" ")" "[" "]"] @punctuation.bracket
 
