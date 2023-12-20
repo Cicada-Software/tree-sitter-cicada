@@ -1,8 +1,8 @@
 [
   "and"
   "cache"
-; "elif"
-; "else"
+  "elif"
+  "else"
   "for"
   "fn"
   "if"

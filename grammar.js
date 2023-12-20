@@ -15,10 +15,10 @@ module.exports = grammar({
       $.cache_stmt,
       $.title_stmt,
       $.func_def_stmt,
-      $.if_expr, // TODO: make this an expression
       $.for_stmt,
       $.break_stmt,
       $.continue_stmt,
+      $.expr,
     ),
 
     event_type: $ => /[a-z.]+/,
@@ -43,6 +43,8 @@ module.exports = grammar({
     ),
 
     if_expr: $ => seq('if', $.expr, ':'),
+    elif_expr: $ => seq('elif', $.expr, ':'),
+    else_expr: $ => seq('else', ':'),
 
     for_stmt: $ => seq('for', $.ident, 'in', $.expr, ':'),
 
@@ -51,7 +53,7 @@ module.exports = grammar({
 
     let_stmt: $ => seq('let', optional('mut'), $.ident, '=', $.expr),
 
-    expr: $ => choice(
+    expr: $ => prec(2, choice(
       $.binary_expr,
       $.unary_expr,
       $.ident,
@@ -60,7 +62,10 @@ module.exports = grammar({
       $.paren_expr,
       $.bool_literal,
       $.list_expr,
-    ),
+      $.if_expr,
+      $.elif_expr,
+      $.else_expr,
+    )),
 
     func_call_expr: $ => prec.right(seq(
       $.ident,
@@ -107,6 +112,7 @@ module.exports = grammar({
     ),
 
     binary_expr: $ => prec.left(
+      3,
       seq(
         $.expr,
         choice(

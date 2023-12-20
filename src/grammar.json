@@ -45,10 +45,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "if_expr"
-        },
-        {
-          "type": "SYMBOL",
           "name": "for_stmt"
         },
         {
@@ -58,6 +54,10 @@
         {
           "type": "SYMBOL",
           "name": "continue_stmt"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr"
         }
       ]
     },
@@ -190,6 +190,36 @@
         }
       ]
     },
+    "elif_expr": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "elif"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        }
+      ]
+    },
+    "else_expr": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "else"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        }
+      ]
+    },
     "for_stmt": {
       "type": "SEQ",
       "members": [
@@ -257,41 +287,57 @@
       ]
     },
     "expr": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "binary_expr"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "unary_expr"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ident"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "number"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "string"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "paren_expr"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "bool_literal"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "list_expr"
-        }
-      ]
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "binary_expr"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "unary_expr"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "ident"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "number"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "string"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "paren_expr"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "bool_literal"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "list_expr"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "if_expr"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "elif_expr"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "else_expr"
+          }
+        ]
+      }
     },
     "func_call_expr": {
       "type": "PREC_RIGHT",
@@ -507,7 +553,7 @@
     },
     "binary_expr": {
       "type": "PREC_LEFT",
-      "value": 0,
+      "value": 3,
       "content": {
         "type": "SEQ",
         "members": [
